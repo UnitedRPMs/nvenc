@@ -1,19 +1,18 @@
 Name:           nvenc
 Version:        7.1.9
-Release:        1%{?dist}
-Epoch:          1
+Release:        4%{?dist}
 Summary:        A comprehensive set of APIs for hardware accelerated video encode and decode
 
-License:        https://developer.nvidia.com/nvidia-video-codec-sdk-license-agreement
+License:        https://developer.nvidia.com/nvidia-video-codec-sdk-license-agreement, Redistributable, no modification permitted
 URL:            https://developer.nvidia.com/nvidia-video-codec-sdk
-Source0:        Video_Codec_SDK_%{version}.zip
+Source0:        https://github.com/UnitedRPMs/nvenc/releases/download/%{version}/Video_Codec_SDK_%{version}.zip
 
 BuildArch:      noarch
 
-Provides:       nvidia-video-codec-sdk = %{?epoch}:%{version}-%{release}
-Obsoletes:      nvidia-video-codec-sdk < %{?epoch}:%{version}-%{release}
-Provides:       nvenc-devel = %{?epoch}:%{version}-%{release}
-Obsoletes:      nvenc-devel < %{?epoch}:%{version}-%{release}
+Provides:       nvidia-video-codec-sdk = %{version}-%{release}
+Obsoletes:      nvidia-video-codec-sdk < %{version}-%{release}
+Provides:       nvenc-devel = %{version}-%{release}
+Obsoletes:      nvenc-devel < %{version}-%{release}
 
 %description
 NVIDIA Products with the Kepler, Maxwell and Pascal generation GPUs contain a
@@ -38,7 +37,7 @@ Note: For Video Codec SDK 7.0, NVCUVID has been renamed to NVDECODE API.
 
 %package samples
 Summary:        nvEncoder Sample application source code
-Requires:       %{name} = %{?epoch}:%{version}-%{release}
+Requires:       %{name} = %{version}-%{release}
 
 %description samples
 This package contains nvEncoder Sample application source code demonstrating
@@ -62,7 +61,11 @@ ln -sf %{_includedir}/%{name}/nvEncodeAPI.h Samples/common/inc/nvEncodeAPI.h
 %doc Samples
 
 %changelog
-* Sun Jan 08 2017 Simone Caronni <negativo17@gmail.com> - 1:7.1.9-1
+
+* Wed Apr 05 2017 David Vásquez <davidva AT tutanota DOT com> - 7.1.9-4
+- Upstream
+
+* Sun Jan 08 2017 Simone Caronni <negativo17@gmail.com> - 7.1.9-1
 - Update to 7.1.9.
 
 * Fri Aug 19 2016 Simone Caronni <negativo17@gmail.com> - 7.0.1-1

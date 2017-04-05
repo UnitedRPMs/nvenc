@@ -1,0 +1,6 @@
+BUILD/*
+BUILDROOT/*
+RPMS/*
+SPECS/*
+SRPMS/*
+Video_Codec_SDK*.zip
